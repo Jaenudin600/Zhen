@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hand-drawn UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+    body {
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .box {
+      border: 2px solid #000;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      background-color: #fffaf0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .box a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .box a:hover {
+      color: #ff9800;
+    }
+
+    .button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 2px solid #000;
+      background-color: #fff;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #ff9800;
+      color: white;
+    }
+
+    .small-text {
+      font-size: 10px;
+      color: #555;
+    }
+
+    .hamburger-menu {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background-color: #fffaf0;
+      border: 2px solid black;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 10px;
+      width: 160px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 50;
+      display: none;
+    }
+
+    .hamburger-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hamburger-menu a {
+      display: block;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .hamburger-menu a:hover {
+      color: #ff9800;
+    }
+  </style>
+</head>
+<body class="bg-white flex justify-center p-4 min-h-screen relative">
+  <div class="container" id="container">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between mb-2 relative z-10">
+      <div class="flex flex-col items-center space-y-0.5 cursor-pointer" id="hamburgerToggle">
+        <div class="w-5 h-[2px] bg-black rounded"></div>
+        <div class="w-5 h-[2px] bg-black rounded"></div>
+        <div class="w-5 h-[2px] bg-black rounded"></div>
+      </div>
+      <div class="text-center text-[14px] leading-none">
+        <div>29 April 25</div>
+        <div class="text-[24px] font-semibold">12:00</div>
+      </div>
+      <button class="border-2 border-black rounded px-2 py-0.5 flex items-center justify-center" onclick="playSound()">
+        <i class="fas fa-arrow-right text-base"></i>
+      </button>
+    </div>
+
+    <!-- Hamburger Dropdown Menu -->
+    <div id="hamburgerMenu" class="hamburger-menu">
+      <a href="profil.html" onclick="playSound()">Profil</a>
+      <a href="pengaturan.html" onclick="playSound()">Pengaturan</a>
+      <a href="bantuan.html" onclick="playSound()">Bantuan</a>
+    </div>
+
+    <!-- Greeting -->
+    <div class="border-2 border-black rounded-lg px-3 py-2 mb-3 flex flex-wrap items-center gap-2 bg-yellow-50">
+      <span class="text-[20px]">Hai</span>
+      <span class="border-2 border-black rounded-full px-3 py-1 text-[20px] font-semibold bg-white">M_ZHEN</span>
+    </div>
+
+    <!-- Navigasi Atas -->
+    <div class="flex flex-wrap justify-between mb-2 gap-2">
+      <div class="box flex-1 w-full sm:w-32" onclick="playSound()">
+        <a href="portofolio.html">Portofolio</a>
+      </div>
+      <div class="box flex-1 w-full sm:w-32" onclick="playSound()">
+        <a href="Saldo.html">Saldo</a>
+      </div>
+      <div class="box flex-1 w-full sm:w-32" onclick="playSound()">
+        <a href="Aset.html">Aset</a>
+      </div>
+    </div>
+
+    <!-- Navigasi Bawah -->
+    <div class="flex flex-wrap gap-2 mb-2">
+      <div class="box flex-1 h-24 w-full sm:w-32" onclick="playSound()">
+        <a href="Biaya.html">Biaya</a>
+      </div>
+      <div class="box flex-1 h-24 w-full sm:w-32" onclick="playSound()">
+        <a href="Hutang.html">Hutang</a>
+      </div>
+    </div>
+
+    <!-- Tabungan -->
+    <div class="box px-3 py-2 mb-2 text-[18px] font-normal bg-blue-50" onclick="playSound()">
+      <a href="Tabungan .html">Tabungan</a>
+    </div>
+
+    <!-- Quote -->
+    <div class="small-text mb-3 leading-tight text-center">
+      Sesungguhnya Bersama kesulitan..<br />
+      Pasti Ada Kemudahan -    
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="flex justify-center items-center gap-1 flex-nowrap">
+      <button class="button" onclick="playSound()"><a href="index.html">Home</a></button>
+      <button class="button" onclick="playEmotSound()"><i class="fas fa-smile"></i></button> <!-- Emot Button -->
+      <button class="button" onclick="stopSound()">X</button> <!-- Stop Sound Button -->
+      <button class="button" onclick="playSound()"><i class="fas fa-bolt"></i></button>
+      <button class="button" onclick="playSound()">Akun</button>
+    </div>
+  </div>
+
+  <!-- Sound Effect -->
+  <audio id="funnySound" src="epicnusantara.mp3"></audio>
+  <audio id="emotSound" src="islamic.mp3"></audio> <!-- TikTok viral song -->
+
+  <script>
+    function playSound() {
+      const sound = document.getElementById("funnySound");
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    function playEmotSound() {
+      const emotSound = document.getElementById("emotSound");
+      emotSound.currentTime = 0;
+      emotSound.play();
+    }
+
+    // Function to stop any audio playback
+    function stopSound() {
+      const sound = document.getElementById("funnySound");
+      sound.pause();
+      sound.currentTime = 0;
+
+      const emotSound = document.getElementById("emotSound");
+      emotSound.pause();
+      emotSound.currentTime = 0;
+    }
+
+    const hamburgerToggle = document.getElementById("hamburgerToggle");
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+
+    hamburgerToggle.addEventListener("click", () => {
+      hamburgerMenu.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
